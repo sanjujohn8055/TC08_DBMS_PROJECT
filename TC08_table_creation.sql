@@ -1,33 +1,37 @@
-create database TC08_insurance_company; 
-use TC08_insurance_company; 
-select * from tc08_customer;
-create table TC08_customer( 
-cust_id varchar(20) primary key,
-cust_fname varchar(20) not null,
-cust_lname varchar(20) ,
-cust_dob date,
-cust_gender char(5),
-cust_address varchar(40),
-cust_mob_number varchar(20)  not null,
-cust_email varchar(30),
-cust_passport_number varchar(30) ,
-cust_marital_status char(10),
-cust_pps_number varchar(20) );
+-- Create database and use it
+CREATE DATABASE IF NOT EXISTS TC08_insurance_company; 
+USE TC08_insurance_company;
+-- Customer table with personal information
+CREATE TABLE TC08_customer( 
+    cust_id VARCHAR(20) PRIMARY KEY,
+    cust_fname VARCHAR(20) NOT NULL,
+    cust_lname VARCHAR(20),
+    cust_dob DATE,
+    cust_gender CHAR(5),
+    cust_address VARCHAR(40),
+    cust_mob_number VARCHAR(20) NOT NULL,
+    cust_email VARCHAR(30),
+    cust_passport_number VARCHAR(30),
+    cust_marital_status CHAR(10),
+    cust_pps_number VARCHAR(20)
+);
 
-create table TC08_vehicle(
-vehicle_id varchar(20) primary key,
-cust_id varchar(20)  not null,
-policy_id varchar(20),
-vehicle_registration_number varchar(20) not null,
-vehicle_value varchar(10),
-vehicle_type varchar(20),
-vehicle_size varchar(10),
-vehicle_number_of_seat integer,
-vehicle_manufacturer varchar(20),
-vehicle_engine_number integer,
-vehicle_chasis_number integer,
-vehicle_number varchar(30) not null,
-vehicle_model_number varchar(30));
+-- Vehicle information table
+CREATE TABLE TC08_vehicle(
+    vehicle_id VARCHAR(20) PRIMARY KEY,
+    cust_id VARCHAR(20) NOT NULL,
+    policy_id VARCHAR(20),
+    vehicle_registration_number VARCHAR(20) NOT NULL,
+    vehicle_value VARCHAR(10),
+    vehicle_type VARCHAR(20),
+    vehicle_size VARCHAR(10),
+    vehicle_number_of_seat INTEGER,
+    vehicle_manufacturer VARCHAR(20),
+    vehicle_engine_number INTEGER,
+    vehicle_chasis_number INTEGER,
+    vehicle_number VARCHAR(30) NOT NULL,
+    vehicle_model_number VARCHAR(30)
+);
  
 
 CREATE table TC08_claim(
@@ -223,6 +227,5 @@ add foreign key(company_name) references tc08_insurance_company(company_name);
 alter table tc08_quote
 add foreign key(cust_id) references tc08_customer(cust_id),
 add foreign key(application_id) references tc08_application(application_id);
-select * from tc08_incident_report;
-
-  
+-- Enable foreign key checks
+SET FOREIGN_KEY_CHECKS=1;

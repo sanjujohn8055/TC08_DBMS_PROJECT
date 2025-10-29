@@ -1,5 +1,12 @@
-  
-insert into TC08_department values ('claim','tata insurance','hyderabad','7386213897','claim officer','divya'),
+-- Insert data into TC08_insurance_company first (referenced by other tables)
+INSERT INTO TC08_insurance_company VALUES
+('tata insurance','Ameerpet, Hyderabad,Telangana 500308',76912758,41299738,'tatainsurance@help.com','tatainsurance.com','Hyderabad','TataVehicle office','TataVehicle office'),
+('birla insurance','Andhra pradesh, Telangana',99029888,60496251,'birlainsurance@gmail.com','birlainsurance.com','Andhra pradesh','BirlaVehicle office','BirlaVehicle office'),
+('lic insurance','Millers road, Bangalore- 560 001, India',67965544,73604118,'licinsurance@vehicle.com','licinsurance.com','Bangalore','LICVehicle office','LICVehicle office'),
+('xyz insurance','N.M.Joshi Marg, Mahalaxmi, Mumbai',75603428,94954485,'xyzinsurance@help.com','xyzinsurance.com','Mumbai','XYZVehicle office','XYZVehicle office');
+
+-- Insert department data
+INSERT INTO TC08_department VALUES ('claim','tata insurance','hyderabad','7386213897','claim officer','divya'),
 ('finance','birla insurance','mumbai','9807653214','financial advisor','priya'),
 ('legal','lic insurance','kolkata','8905463218','legal advocate','pranav'),
 ('marketing','xyz insurance','delhi','8019523766','marketing leader','sanju'),
@@ -152,17 +159,18 @@ insert into tc08_vehicle values
 ('8010','19847924','1010','J10','3100000','sedan','M','6','suzuki','6765','2890','05989','4H3VCK367BJK908235727'),
 ('8011','91004304','1011','A02','900000',	'two wheeler',	'S',	'2',	'Vespa',	'1414',	'1212',	'5959',	'4DIDB45BSFEHJCBUSB2');
 
-insert into tc08_insurance_company values
-('Aviva insurance','Ameerpet, Hyderabad,Telangana 5000308','76912758','41299738','Avivainsurance@help.com','avivainsurance.com','Hyderabad','AvivaVehicle office ','AvivaVehicle office') ,
-('Bajaj Insurance','Andhra pradesh, Telengana ','99029888','60496251','BajajInsurance@gmail.com','bajajinsurance.com','Andhra pradesh','BajajVehicle office ','BajajVehicle office') ,
-('Bharath Insurance','Millers road, Banglore- 560 001, India ','67965544','73604118','BharathInsurance@vehicle.com','bharathinsurance.com','Banglore','BharathVehicle office','BharathVehicle office '),
-('Canara Bank','N.M.Joshi Marg, Mahalaxmi, Mumbai ','75603428','94954485','CanaraBank@help.com','canarabank.com','Mumbai ','Canara BankVehicle office  ','Canara BankVehicle office')  ,
-('ICICI Bank','Hyderabad , Telengana ,500029','81659198','57177717','ICICIBank@gamil.com','icicibank.com','Hyderabad ','ICICI BankVehicle office ','ICICI BankVehicle office') ,
-('SBI Bank','Gurugram(Haryana) - 122002','41292900','68081607','SBIBank123@gmail.com','sbibank.com','Gurugram','SBI BankVehicle office ','SBI BankVehicle office' ),
-('Max Insurance','Bandra(E), Mumbai - 400 051','39074361','89752452','MaxInsurance@help.com','maxinsurance.com','Bandra','Max InsuranceVehicle office ','Max InsuranceVehicle office') ,
-('Future Insurance','Millers road, Banglore- 560 001, India ','36837279','94033374','FutureInsurance@gmail.com','futureinsurance.com','Banglore ','Future InsuranceVehicle office ','Future InsuranceVehicle office'), 
-('DLF Insurance','Andhra pradesh, Telengana ','55100284','98661714','DLFInsurance123@gamil.com ','dflinsurance.com','Andhra pradesh','DLF InsuranceVehicle office ','DLF InsuranceVehicle office'), 
-('Exide Insurance','Prabhadevi, Mumbai ','66911806','33976574','ExideInsurance@help.com','exideinsurance.com', 'Mumbai ','Exide InsuranceVehicle office ','Exide InsuranceVehicle office');
+-- Additional insurance companies (these are separate from the main 4 companies used in other tables)
+INSERT INTO TC08_insurance_company VALUES
+('Aviva insurance','Ameerpet, Hyderabad,Telangana 500308',76912758,41299738,'Avivainsurance@help.com','avivainsurance.com','Hyderabad','AvivaVehicle office','AvivaVehicle office'),
+('Bajaj Insurance','Andhra pradesh, Telangana',99029888,60496251,'BajajInsurance@gmail.com','bajajinsurance.com','Andhra pradesh','BajajVehicle office','BajajVehicle office'),
+('Bharath Insurance','Millers road, Bangalore- 560 001, India',67965544,73604118,'BharathInsurance@vehicle.com','bharathinsurance.com','Bangalore','BharathVehicle office','BharathVehicle office'),
+('Canara Bank','N.M.Joshi Marg, Mahalaxmi, Mumbai',75603428,94954485,'CanaraBank@help.com','canarabank.com','Mumbai','Canara BankVehicle office','Canara BankVehicle office'),
+('ICICI Bank','Hyderabad, Telangana 500029',81659198,57177717,'ICICIBank@gmail.com','icicibank.com','Hyderabad','ICICI BankVehicle office','ICICI BankVehicle office'),
+('SBI Bank','Gurugram(Haryana) - 122002',41292900,68081607,'SBIBank123@gmail.com','sbibank.com','Gurugram','SBI BankVehicle office','SBI BankVehicle office'),
+('Max Insurance','Bandra(E), Mumbai - 400 051',39074361,89752452,'MaxInsurance@help.com','maxinsurance.com','Bandra','Max InsuranceVehicle office','Max InsuranceVehicle office'),
+('Future Insurance','Millers road, Bangalore- 560 001, India',36837279,94033374,'FutureInsurance@gmail.com','futureinsurance.com','Bangalore','Future InsuranceVehicle office','Future InsuranceVehicle office'),
+('DLF Insurance','Andhra pradesh, Telangana',55100284,98661714,'DLFInsurance123@gmail.com','dflinsurance.com','Andhra pradesh','DLF InsuranceVehicle office','DLF InsuranceVehicle office'),
+('Exide Insurance','Prabhadevi, Mumbai',66911806,33976574,'ExideInsurance@help.com','exideinsurance.com','Mumbai','Exide InsuranceVehicle office','Exide InsuranceVehicle office');
 
 insert into tc08_incident_report values
 ('2011324','91004304','Prabhu prasad','10000','ACCIDENT','2012-07-13','crashed into a tree'),

@@ -8,12 +8,12 @@ ON TC08_customer.cust_id = TC08_claim.cust_id
 WHERE TC08_claim.incident_id IS NOT NULL
 AND TC08_claim.claim_status LIKE "pending";
 
-/*2*/
+/*2 - Find customers with premium payments above average*/
 SELECT TC08_customer.*
-FROM TC08_Customer
-inner JOIN TC08_premium_payment
+FROM TC08_customer
+INNER JOIN TC08_premium_payment
 ON TC08_customer.cust_id = TC08_premium_payment.cust_id 
-WHERE premium_payment_amount > (SELECT SUM(cust_id) FROM TC08_customer);
+WHERE premium_payment_amount > (SELECT AVG(premium_payment_amount) FROM TC08_premium_payment);
 
 /*4*/
 select tc08_customer.* from tc08_customer
@@ -23,11 +23,11 @@ tc08_incident_report.incident_type like 'ACCIDENT' and
 tc08_premium_payment.receipt_id is null and
 tc08_customer.cust_id in (select cust_id from tc08_vehicle having count(cust_id)>1);
 
-/*5*/
-Select tc08_vehicle.* from tc08_vehicle
-inner join tc08_premium_payment
-on  tc08_vehicle.cust_id = tc08_premium_payment.cust_id
-where tc08_premium_payment.premium_payment_amount >  tc08_vehicle.vehicle_number;
+/*5 - Find vehicles where premium amount is greater than vehicle value (converted to numeric)*/
+SELECT tc08_vehicle.* FROM tc08_vehicle
+INNER JOIN tc08_premium_payment
+ON tc08_vehicle.cust_id = tc08_premium_payment.cust_id
+WHERE tc08_premium_payment.premium_payment_amount > CAST(tc08_vehicle.vehicle_value AS UNSIGNED);
 
 /*6*/
 DELIMITER //
